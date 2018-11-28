@@ -7,55 +7,44 @@ import IconButton from '@material-ui/core/IconButton';
 import AlarmOnIcon from '@material-ui/icons/AlarmOn';
 import AlarmOffIcon from '@material-ui/icons/AlarmOff';
 
-
-
 const styles = theme => ({
     root: {
-      ...theme.mixins.gutters(),
-      paddingTop: theme.spacing.unit * 2,
-      paddingBottom: theme.spacing.unit * 2,
-      marginTop: '50px',
-      marginLeft: '100px',
-      marginRight: '100px',
-      marginBottom: '50px',
-      backgroundColor: 'white',
-      width: '50%'
+        ...theme.mixins.gutters(),
+        paddingTop: theme.spacing.unit * 2,
+        paddingBottom: theme.spacing.unit * 2,
+        maxWidth: 360,
+        marginTop: 50,
+        marginLeft: 15,
+        backgroundColor: '#81c784'
+
     },
-    prayerTimes: {
-      float: 'right',
-      marginTop: '-11px',
-      marginRight: '0px'
-    }
-  });
-  
-  class PrayerCards extends React.Component {
-  
+});
+
+
+ class PrayerCards extends React.Component {
+
 
     render(){
+        const { classes, theme } = this.props;
       return (
-        <div>
-        <Paper className={this.classes.root} elevation={2}>
+        <Paper className={classes.root} elevation={10}>
 
             {this.props.prayerName}
-            <div className={classes.prayerTimes}>
+            <div>
             {this.props.prayerTime}
             <IconButton onClick={() => console.log("Test")}>
-              
+
               <AlarmOffIcon />
             </IconButton>
-            </div> 
+            </div>
 
         </Paper>
-      </div>
-    );
-      
-    PrayerCards.propTypes = {
-      classes: PropTypes.object.isRequired,
-    };
 
+    );
     }
-  
   }
 
-  
-  export default withStyles(styles,)(PrayerCards);
+
+
+
+export default withStyles(styles)(PrayerCards);
