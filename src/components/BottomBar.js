@@ -37,7 +37,7 @@ const styles = theme => ({
 });
 
 
-function BottomAppBar(props) {
+function BottomBar(props) {
     const { classes } = props;
     return (
         <React.Fragment>
@@ -61,8 +61,8 @@ function BottomAppBar(props) {
     );
 }
 
-BottomAppBar.propTypes = {
+BottomBar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(BottomAppBar);
+export default withStyles(styles)(BottomBar);

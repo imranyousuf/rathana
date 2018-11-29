@@ -12,6 +12,7 @@ const styles = theme => ({
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2,
         maxWidth: 360,
+        minWidth: 360,
         marginTop: 20,
         marginLeft: 15,
         backgroundColor: 'white',
@@ -19,7 +20,8 @@ const styles = theme => ({
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         fontWeight: '600',
-        fontSize: 24
+        fontSize: 24,
+
 
     },
 
