@@ -43,10 +43,9 @@ const styles = theme => ({
      constructor(props) {
          super(props);
          this.handleLoginClick = this.handleTurnOn.bind(this);
-         this.handleLogoutClick = this.handleTurnOff.bind(this);
 
          this.state = {
-             FajrSound: false,
+             FajrSound: true,
              DuhrSound: false,
              AsrSound: true,
              MagribSound: false,
@@ -59,36 +58,29 @@ const styles = theme => ({
 
 
 
-     handleTurnOn = (prayerName) => {
+     handleTurnOn = () => {
 
-         console.log(prayerName);
-             if(this.state.sound){
-                 console.log("Turn off");
-                 this.setState({sound: false});
-             }
-             if(!this.state.sound){
-                 console.log("Turn on");
-                 this.setState({sound: true});
-                 console.log(this.state.sound)
-             }
-            //console.log(this.state.sound)
+         let getStateName = this.props.prayerName + "Sound";
+         if(this.state[getStateName]){
+             this.setState({[getStateName]: false});
+         }
+         if(!this.state[getStateName]){
+             this.setState({[getStateName]: true});
+         }
+
          };
 
 
 
-     handleTurnOff = () => {
-         console.log("Turn Off")
-         this.props.athanOn = false;
-     };
-
     render(){
         const { classes, theme } = this.props;
         let volume;
+        let getStateName = this.props.prayerName + "Sound";
 
-        if(this.state.sound){
+        if(this.state[getStateName]){
             volume = <VolumeUpIcon />;
 
-        }if(!this.state.sound){
+        }if(!this.state[getStateName]){
 
             volume = <VolumeOffIcon/>;
         }
@@ -105,7 +97,7 @@ const styles = theme => ({
             <div className={classes.prayerTime}>
                  {this.props.prayerTime}
                 <IconButton
-                    onClick={() => this.handleTurnOn(this.props.prayerName)}
+                    onClick={() => this.handleTurnOn()}
                     style={{color: '#373741'}}
                 >
                     {volume}
