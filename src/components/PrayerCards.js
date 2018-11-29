@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-import VolumeOffIcon from '@material-ui/icons/VolumeDown';
+import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 
 const styles = theme => ({
     root: {
@@ -40,12 +40,60 @@ const styles = theme => ({
 
  class PrayerCards extends React.Component {
 
-     _turnOn = () => {
+     constructor(props) {
+         super(props);
+         this.handleLoginClick = this.handleTurnOn.bind(this);
+         this.handleLogoutClick = this.handleTurnOff.bind(this);
 
+         this.state = {
+             FajrSound: false,
+             DuhrSound: false,
+             AsrSound: true,
+             MagribSound: false,
+             IshaSound: true,
+             theme: 'dark',
+
+         };
+     }
+
+
+
+
+     handleTurnOn = (prayerName) => {
+
+         console.log(prayerName);
+             if(this.state.sound){
+                 console.log("Turn off");
+                 this.setState({sound: false});
+             }
+             if(!this.state.sound){
+                 console.log("Turn on");
+                 this.setState({sound: true});
+                 console.log(this.state.sound)
+             }
+            //console.log(this.state.sound)
+         };
+
+
+
+     handleTurnOff = () => {
+         console.log("Turn Off")
+         this.props.athanOn = false;
      };
 
     render(){
         const { classes, theme } = this.props;
+        let volume;
+
+        if(this.state.sound){
+            volume = <VolumeUpIcon />;
+
+        }if(!this.state.sound){
+
+            volume = <VolumeOffIcon/>;
+        }
+
+
       return (
         <Paper className={classes.root} elevation={5}>
 
@@ -53,13 +101,14 @@ const styles = theme => ({
                 {this.props.prayerName}
             </div>
 
+
             <div className={classes.prayerTime}>
                  {this.props.prayerTime}
                 <IconButton
-                    onClick={() => console.log("Test")}
+                    onClick={() => this.handleTurnOn(this.props.prayerName)}
                     style={{color: '#373741'}}
                 >
-                    <VolumeUpIcon />
+                    {volume}
                 </IconButton>
             </div>
 
