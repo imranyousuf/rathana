@@ -5,7 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
-import mp3_file from './azan.mp3';
+import mp3_file from '../resources/azan.mp3';
+import {Line} from 'rc-progress';
 
 const styles = theme => ({
     root: {
@@ -95,9 +96,11 @@ const styles = theme => ({
         const { classes, theme } = this.props;
         let volume;
         let getStateName = this.props.prayerName + "Sound";
+        
 
         if(this.state[getStateName]){
             volume = <VolumeUpIcon />;
+            
    
 
         }if(!this.state[getStateName]){
@@ -114,6 +117,7 @@ const styles = theme => ({
             <div className={classes.prayerName}>
                 {this.props.prayerName}
             </div>
+            
 
 
             <div className={classes.prayerTime}>
@@ -128,6 +132,15 @@ const styles = theme => ({
 
             <button onClick={this.play}>Play</button>
             <button onClick={this.pause}>Pause</button>
+
+            <div>
+                <Line percent="30" strokeWidth="4" strokeColor="#373741" />
+            </div>
+
+          
+
+            
+
 
 
 

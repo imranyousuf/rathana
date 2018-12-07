@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
+import Button from '@material-ui/core/Button';
+import Iframe from 'react-iframe';
 
 
 
 const styles=({
    calenderContainer: {
        float: 'right',
-       paddingRight: 20,
+       marginRight: 65,
+       paddingTop: 20,
        paddingBottom: 20,
+   },
 
 
-   }
 
 });
 
@@ -33,7 +36,10 @@ export default class SideCalendar extends Component {
                         onChange={this.onChange}
                         value={this.state.date}
                     />
+
                 </div>
+
+ 
 
 
             </div>
