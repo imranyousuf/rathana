@@ -9,7 +9,9 @@
     "react": "^16.6.1",
     "react-calendar": "^2.17.5",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1"
+    "react-moonphase": "^1.1.0",
+    "react-scripts": "2.1.1",
+    "react-sound": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

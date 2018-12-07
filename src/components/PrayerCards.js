@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
+import mp3_file from './azan.mp3';
 
 const styles = theme => ({
     root: {
@@ -53,9 +54,25 @@ const styles = theme => ({
              MagribSound: false,
              IshaSound: true,
              theme: 'dark',
+             play: false,
+             pause: true,
 
          };
+         this.url = mp3_file;
+        this.audio = new Audio(this.url);
      }
+
+
+    play = () => {
+
+        this.setState({ play: true, pause: false })
+          this.audio.play();
+        }
+        
+    pause = () => {
+        this.setState({ play: false, pause: true })
+        this.audio.pause();
+    }
 
 
 
@@ -81,11 +98,14 @@ const styles = theme => ({
 
         if(this.state[getStateName]){
             volume = <VolumeUpIcon />;
+   
 
         }if(!this.state[getStateName]){
 
             volume = <VolumeOffIcon/>;
         }
+
+        
 
 
       return (
@@ -105,6 +125,10 @@ const styles = theme => ({
                     {volume}
                 </IconButton>
             </div>
+
+            <button onClick={this.play}>Play</button>
+            <button onClick={this.pause}>Pause</button>
+
 
 
         </Paper>

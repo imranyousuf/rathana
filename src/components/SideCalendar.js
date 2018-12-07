@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 
+
+
 const styles=({
    calenderContainer: {
        float: 'right',
@@ -23,14 +25,19 @@ export default class SideCalendar extends Component {
 
     render() {
         return (
-            <div style={styles.calenderContainer}>
-                <Calendar
-                    calendarType="Arabic"
-                    locale="us"
-                    onChange={this.onChange}
-                    value={this.state.date}
-                />
+            <div>
+                <div style={styles.calenderContainer}>
+                    <Calendar
+                        calendarType="Arabic"
+                        locale="us"
+                        onChange={this.onChange}
+                        value={this.state.date}
+                    />
+                </div>
+
+
             </div>
         );
     }
 }
+

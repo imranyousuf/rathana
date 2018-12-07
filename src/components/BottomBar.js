@@ -16,6 +16,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Input from '@material-ui/core/Input';
 
 const styles = theme => ({
     text: {
@@ -67,7 +68,9 @@ class BottomBar extends React.Component {
 
         const fullList = (
             <div className={classes.fullList}>
+                <Input/>
                 <List>
+                    <Input/>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                         <ListItem button key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
@@ -111,7 +114,7 @@ class BottomBar extends React.Component {
                     </Drawer>
                     <Toolbar className={classes.toolbar}>
                         <IconButton color="inherit" aria-label="Open drawer">
-                            Imran
+                            Hadith
                         </IconButton>
                         <div>
                             <IconButton color="inherit">
